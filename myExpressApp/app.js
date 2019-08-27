@@ -7,6 +7,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+// additional Library included
+var api_validate = require('./Cryptography/api_validate');
+
+var bodyParser = require('body-parser');
+
+
 var app = express();
 
 // view engine setup
@@ -26,6 +32,13 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// using body parser
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
 
 // error handler
 app.use(function(err, req, res, next) {
