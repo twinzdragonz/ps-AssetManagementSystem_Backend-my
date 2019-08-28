@@ -7,9 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-// additional Library included
-var api_validate = require('./Cryptography/api_validate');
-
 var bodyParser = require('body-parser');
 
 
