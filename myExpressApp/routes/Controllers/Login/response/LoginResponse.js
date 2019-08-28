@@ -8,22 +8,28 @@ class LoginResponse{
 
     }
 
-    buildHeader()
+    init()
+    {
+       var iResp = 0;
+       console.log("Login Data building response")
+
+       var resp_data  = buildJson();
+
+       return resp_data;
+
+    }
+
+    buildJson()
     {
 
     }
 
-    buildBody()
-    {
-
-    }
+  
 
     log(title,data)
     {
        console.log(title,JSON.stringify(data));
     }
-
-
 
 }
 

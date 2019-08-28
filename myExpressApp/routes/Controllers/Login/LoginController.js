@@ -14,8 +14,11 @@ class LoginController
         login_request = new login_request(request);
         // parse and process on login_request init
         iResp =  login_request.init();
-        var resp_data = login_response(request,iResp);
-        
+        // construct the data into login_reponse
+        login_response = new login_response(request,iResp);
+        // parse and process on login_response init
+        var resp_data = login_response.init();
+
         return resp_data;
 
     }
