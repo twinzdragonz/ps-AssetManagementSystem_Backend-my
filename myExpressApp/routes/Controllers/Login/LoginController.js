@@ -1,26 +1,24 @@
 'use strict';
-const login_request = require('./request/LoginRequest.js')
-const login_response= require('./response/LoginResponse.js')
+var login_request = require('./request/LoginRequest.js')
+var login_response= require('./response/LoginResponse.js')
+
+
 
 class LoginController
 {
-    constructor(request,response){
-         this.request = this.request;
-         this.response = this.response
-    }
 
-    parse(request,response)
+    proc_login(request)
     {
-        iResp =  this.log("Request Header:",request.headers);
-      //  iResp =  login_request.init(data);
+        var iResp =0;
+        // construct the data into login_request
+        login_request = new login_request(request);
+        // parse and process on login_request init
+        iResp =  login_request.init();
+        var resp_data = login_response(request,iResp);
+        
+        return resp_data;
 
     }
-
-    log(title,data)
-    {
-      console.log(title,JSON.stringify(data));
-
-    }
-
-
 }
+
+module.exports = LoginController;

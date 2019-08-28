@@ -2,7 +2,11 @@
 var express = require('express');
 var router = express.Router();
 
-import LoginController from './Controllers/Login/LoginController.js';
+var LoginController = require('./Controllers/Login/LoginController.js');
+
+
+//instance
+LoginController = new LoginController();
 
 
 /* GET home page. */
@@ -13,9 +17,9 @@ router.get('/', function(req, res, next) {
 
 router.post('/login',function(req,res){
 
-   login_controller_instance = LoginController(req,res);
+   LoginController.proc_login(req);
 
-   login_controller_instance.parse();
+   res.end();
 
 });
 
