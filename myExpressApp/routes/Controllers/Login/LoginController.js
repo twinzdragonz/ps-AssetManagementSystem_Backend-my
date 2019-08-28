@@ -2,7 +2,7 @@
 const login_request = require('./request/LoginRequest.js')
 const login_response= require('./response/LoginResponse.js')
 
-class  LoginController
+class LoginController
 {
     constructor(request,response){
          this.request = this.request;
