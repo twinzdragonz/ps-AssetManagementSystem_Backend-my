@@ -1,11 +1,12 @@
-'use strict';
 
 var CF = require('../../../middleware/CommonFunctions.js')
-class LoginRequest{
+
+module.exports = class LoginRequest{
 
     constructor(req)
     {
-        CF = new CF();
+
+     //    CF = new CF();
        // console.log(req);
 
          this.className = "Login Request";
@@ -20,12 +21,11 @@ class LoginRequest{
        console.log("Login Data parses into process")
 
        // validate this is correct header
-       iResp = this.validate_header();
+     //  iResp = this.validate_header();
        //validate this is correct body
-        iResp = this.validate_body();
-
+      //  iResp = this.validate_body();
+          console.log(iResp);
        // more checking or db Interaction here
-
        return iResp;
 
     }
@@ -64,4 +64,4 @@ class LoginRequest{
 
 }
 
-module.exports = LoginRequest;
+

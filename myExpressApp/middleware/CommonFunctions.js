@@ -1,4 +1,3 @@
-'use-strict'
 
 class CommonFunctions
 {
@@ -43,7 +42,6 @@ class CommonFunctions
             iResp = 0;
             err_msg = "PASS";
             this.log("[VALIDATION] :: [DATA] :"+key+ " [METHOD]: " + method,value+" [RESULT]: "+err_msg);
-
          }
          else
          {
@@ -90,3 +88,4 @@ class CommonFunctions
 }
 
 module.exports = CommonFunctions;
+console.log(CommonFunctions);

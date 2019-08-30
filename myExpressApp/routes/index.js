@@ -1,8 +1,8 @@
-'use strict';
+
 var express = require('express');
 var router = express.Router();
 
-var LoginController = require('./Controllers/Login/LoginController.js');
+var LoginController = require('../controllers/Login/LoginController.js');
 
 
 //instance
@@ -16,9 +16,8 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/login',function(req,res){
-
-   LoginController.proc_login(req);
-
+    
+   res.json(LoginController.proc_login(req));
    res.end();
 
 });
