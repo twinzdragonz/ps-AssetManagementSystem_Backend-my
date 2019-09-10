@@ -3,7 +3,7 @@ class CommonFunctions
 {
 
    // just want to test what can i do with NODE.JS on custom library//
-   validation(key ,method , value , err_msg)
+    validation(key ,method , value , err_msg)
      {
          var iResp = 0;
          if(method == "equal")
@@ -50,42 +50,21 @@ class CommonFunctions
          }
          return iResp;
       }
-     
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     log(title,data)
+     log(title,data,indicator = "json")
      {
+        if(indicator == "json")
+        {
         console.log(title,JSON.stringify(data));
+        }
+        else
+      {
+         console.log(title,data);
+      }
      }
 
-
+   
 }
-
 module.exports = CommonFunctions;
-console.log(CommonFunctions);

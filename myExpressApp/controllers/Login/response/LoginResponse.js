@@ -1,27 +1,20 @@
 
 
-module.exports =  class LoginResponse{
+ class LoginResponse{
 
-    constructor(req,iresp)
-    {
-         this.className = "Login Response";
-         this.req = req;
-         this.iresp = iresp;
-    }
-
-    init()
+    init(iResp)
     {
        console.log("Login Data building response")
 
-       var resp_data  = this.buildJson();
+       var resp_data  = this.buildJson(iResp);
 
        return resp_data;
 
     }
 
-    buildJson()
+    buildJson(iresp)
     {
-       if(this.iresp == 0)
+       if(iresp == 0)
        {
          return ({
             resp_code: "00",
@@ -44,3 +37,6 @@ module.exports =  class LoginResponse{
        console.log(title,JSON.stringify(data));
     }
 }
+
+module.exports = LoginResponse;
+
