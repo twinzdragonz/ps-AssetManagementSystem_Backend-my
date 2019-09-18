@@ -16,7 +16,7 @@ class LoginRequest{
          iResp = this.validate_header(this.content_type,this.token);
        //validate this is correct body
 
-          
+
         iResp = this.validate_body(data);
           console.log(iResp);
        // more checking or db Interaction here
