@@ -1,7 +1,6 @@
 
 class CommonFunctions
 {
-
    // just want to test what can i do with NODE.JS on custom library//
     validation(key ,method , value , err_msg)
      {
@@ -52,7 +51,6 @@ class CommonFunctions
       }
 
 
-
      log(title,data,indicator = "json")
      {
         if(indicator == "json")
@@ -65,6 +63,5 @@ class CommonFunctions
       }
      }
 
-   
 }
 module.exports = CommonFunctions;

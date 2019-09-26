@@ -1,8 +1,7 @@
 
-var CF = require('../../../middleware/CommonFunctions.js');
+var CommonFunctions = require('../../../middleware/CommonFunctions.js');
 
-
-CF = new CF();
+CommonFunctions = new CommonFunctions();
 class LoginRequest{
 
     init(data)
@@ -28,10 +27,10 @@ class LoginRequest{
     {
         var iResp = 0;
      //key ,method , value , err_msg
-        iResp = CF.validation(content_type,'equal', 'application/json',"Content_Type_Mismatch");
+        iResp = CommonFunctions.validation(content_type,'equal', 'application/json',"Content_Type_Mismatch");
         if(iResp != 0)  {  return -1;   }
 
-        iResp = CF.validation(token,'not_equal', null,"PASS");
+        iResp = CommonFunctions.validation(token,'not_equal', null,"PASS");
         if(iResp != 0)  {  return -1;   }
 
     }
@@ -41,12 +40,12 @@ class LoginRequest{
      // CF.log("DATA",data,"raw");
       this.request_body = data.body;
         var iResp = 0;
-        iResp = CF.validation(this.request_body.req_username,'not_equal', null,"PASS");
+        iResp = CommonFunctions.validation(this.request_body.req_username,'not_equal', null,"PASS");
         if(iResp != 0)  {  return -1; }
 
-        iResp = CF.validation(this.request_body.req_password,'not_equal', null,"PASS");
+        iResp = CommonFunctions.validation(this.request_body.req_password,'not_equal', null,"PASS");
         if(iResp != 0)  {  return -1; }
- 
+
         return 0;
     }
 

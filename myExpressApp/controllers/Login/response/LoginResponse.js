@@ -1,5 +1,4 @@
 
-
  class LoginResponse{
 
     init(iResp)
@@ -29,8 +28,6 @@
             });
       }
     }
-
-
 
     log(title,data)
     {
