@@ -49,6 +49,27 @@ class CommonFunctions
          }
          return iResp;
       }
+         
+       jsontoArray(data)
+       { 
+          var  temp_array = [];
+          for (var key in data) {
+              if (data.hasOwnProperty(key))
+               {
+                  temp_array[data.key].id = data;
+             //   console.log(data[key].id);
+               }
+            }
+           return temp_array;
+       }
+
+       arraytoJson(array_data)
+       {
+
+
+          return null;
+       }
+  
 
 
      log(title,data,indicator = "json")

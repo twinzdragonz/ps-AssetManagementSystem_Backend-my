@@ -1,3 +1,5 @@
+// insert commonfunctions
+
 
  class SystemResponse{
 
@@ -19,6 +21,15 @@
 
        return resp_data;
 
+    }
+    
+    getCompanyDatafromDB()
+    {  
+       
+      // which table , all/by id , arguments;
+       // arguments = "shortDescription,title,status,shipTo"; // or arguments = "*";
+      // var json_data = CommonFunctions.arraytoJson(SequalizeSimplified.get("tbl_company","*",arguments));
+     // return json_data;
     }
 
     getCompanyData()
