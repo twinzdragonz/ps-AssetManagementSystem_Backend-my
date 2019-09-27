@@ -17,20 +17,37 @@ router.use((req, res, next) => {
   next();
 }) 
 
-/* GET home page. */
+// /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
 
-router.post('/login',function(req,res){
-    
+
+
+router.post('/api/login',function(req,res){
    res.json(LoginController.proc_login(req));
    res.end();
 
 });
 
-router.post('/ams_system',function(req,res){
+// system api 
+router.post('/api/public',function(req,res){
+  res.json(LoginController.proc_login(req));
+  res.end();
+});
+
+
+// system api 
+router.post('/api/ams_system',function(req,res){
+  res.json(SystemController.proc_system(req));
+  res.end();
+});
+
+
+// render api 
+router.post('/api/render',function(req,res)
+{
   res.json(SystemController.proc_system(req));
   res.end();
 });
