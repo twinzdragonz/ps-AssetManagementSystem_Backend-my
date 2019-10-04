@@ -25,13 +25,11 @@
     
     getCompanyDatafromDB()
     {  
-       
+
       // which table , all/by id , arguments;
        // arguments = "shortDescription,title,status,shipTo"; // or arguments = "*";
       // var json_data =
-      
-      
-         SequalizeSimplified.delete("tbl_company","*",arguments));
+        // SequalizeSimplified.delete("tbl_company","*",arguments));
      // return json_data;
     }
 
