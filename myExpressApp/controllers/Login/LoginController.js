@@ -9,11 +9,11 @@ class LoginController
     proc_login(request)
     {
         var iResp = 0;
-
+           console.log("REQ:",request);
         iResp =  login_request.init(request);
 
         var resp_data = login_response.init(iResp);
-
+        console.log("RESP:",resp_data);
         return resp_data;
     }
 }
