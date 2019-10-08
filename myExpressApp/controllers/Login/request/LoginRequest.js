@@ -52,24 +52,23 @@ class LoginRequest{
         return 0;
     }
 
-    validate_db()
+     validate_db()
     {
-      this.getUser_info().then(function(result)
-      {
-        return console.log("DATA",result);
-       }) 
+      let query;
+      query = User.findAll({
+       
+          where: { username: this.request_body.req_username,
+                                  password : this.request_body.req_password} 
+         
+          
+      })
+     
+      query.then(console.log);
+ 
+      return query;
    
     }
 
-    getUser_info()
-    {
-      return User.findOne({
-        where:{
-           username : this.request_body.req_username,
-           password : this.request_body.req_password
-        }
-      });
-    }
 
 }
 module.exports = LoginRequest;
