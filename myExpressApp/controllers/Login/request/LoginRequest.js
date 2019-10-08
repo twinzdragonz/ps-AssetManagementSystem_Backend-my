@@ -1,6 +1,8 @@
 
 var CommonFunctions = require('../../../middleware/CommonFunctions.js');
 
+const {User} = require("../../Database/Database");
+
 CommonFunctions = new CommonFunctions();
 class LoginRequest{
 
@@ -15,9 +17,10 @@ class LoginRequest{
          iResp = this.validate_header(this.content_type,this.token);
        //validate this is correct body
 
-
         iResp = this.validate_body(data);
-          console.log(iResp);
+        iResp = this.validate_db(data);
+
+      
        // more checking or db Interaction here
        return iResp;
 
@@ -51,7 +54,21 @@ class LoginRequest{
 
     validate_db()
     {
+      this.getUser_info().then(function(result)
+      {
+        return console.log("DATA",result);
+       }) 
+   
+    }
 
+    getUser_info()
+    {
+      return User.findOne({
+        where:{
+           username : this.request_body.req_username,
+           password : this.request_body.req_password
+        }
+      });
     }
 
 }

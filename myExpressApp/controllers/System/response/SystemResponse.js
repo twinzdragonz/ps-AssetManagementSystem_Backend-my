@@ -24,8 +24,7 @@
     }
     
     getCompanyDatafromDB()
-    {  
-
+    {
       // which table , all/by id , arguments;
        // arguments = "shortDescription,title,status,shipTo"; // or arguments = "*";
       // var json_data =

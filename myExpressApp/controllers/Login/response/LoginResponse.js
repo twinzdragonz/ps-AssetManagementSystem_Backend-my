@@ -3,8 +3,7 @@
 
     init(iResp)
     {
-       console.log("Login Data building response")
-
+       console.log("Login Data building response");
        var resp_data  = this.buildJson(iResp);
 
        return resp_data;
@@ -31,7 +30,7 @@
 
     log(title,data)
     {
-       console.log(title,JSON.stringify(data));
+       //console.log(title,JSON.stringify(data));
     }
 }
 
