@@ -1,6 +1,6 @@
 const {User} = require("../../Database/Database");
 
-
+// init value as default       
 var data_username = null;
 var data_token = null;
 var data_password = null;
@@ -8,27 +8,37 @@ var data_salt = null;
 var data_isAuthenticated = false;
 var data_resp_code = "01";
 var data_resp_code_description = "Denied";
+
+
+var  resp_data = "";
+
+
  class LoginResponse{
 
-   
-
-    init(iResp,request)
+    async init(iResp,request)
     {
        console.log("Login Data building response");
-       var resp_data  = this.buildJson(iResp,request);
+
+      resp_data = await this.buildJson(iResp,request)
+
+      console.log("LOGIN RESPONSE RESP_DATA :",resp_data);
+   
        return resp_data;
 
     }
 
-    buildJson(iResp,request)
+
+
+
+   async buildJson(iResp,request)
     {
        console.log("LoginResponse iResp =>",iResp);
-
      // strResp do what?
        if(iResp == 0)
        {
            
-            this.validate_db(request);
+          var db_respond = await this.validate_db(request);
+          console.log("LOGIN RESPONSE BUILDJSON: ",db_respond);
             this.request_body = request.body;
            if(data_isAuthenticated == true){
                 if(data_username != this.request_body.req_username &&
@@ -38,13 +48,10 @@ var data_resp_code_description = "Denied";
                      data_resp_code_description = "Error";
 
                   }
+             
               // do nothing
            }
-           else
-           {
-            data_resp_code = "02"
-            data_resp_code_description = "User does not exist";
-           }
+      
        }
       else
       {
@@ -54,29 +61,32 @@ var data_resp_code_description = "Denied";
 
       return ({
 
-         resp_username : data_username,
-         resp_token : data_token,
-         resp_salt : data_salt,
-         resp_isAuthenticated : data_isAuthenticated,
-         resp_code: data_resp_code,
-         resp_code_description : data_resp_code_description
+               resp_username : data_username,
+               resp_token : data_token,
+               resp_salt : data_salt,
+               resp_isAuthenticated : data_isAuthenticated,
+               resp_code: data_resp_code,
+               resp_code_description : data_resp_code_description
          });
 
     }
 
     async validate_db(data)
     {
-         this.request_body = data.body;
+      
+      this.request_body = data.body;
 
-        return User
-        .findAll({
+      await User.
+        findAll({
           where:{
             username:this.request_body.req_username
           }
         }).then(function(Users){
-      
-               //do some parsing/editing
-               //this then is not required if you don't want to change anything
+            console.log("LOGIN RESPONSE VALIDATE_DB :",Users);
+           if(Users != undefined || Users.length != 0){
+
+            console.log("LOGIN RESPONSE VALIDATE_DB IS AVAILABLE");
+
                data_username = Users[0]["username"];
                data_password  = Users[0]["password"];
                data_token  = Users[0]["token"];
@@ -85,11 +95,21 @@ var data_resp_code_description = "Denied";
                data_resp_code = "00";
                data_resp_code_description  = "Success";
 
-               return Users;
-        
+               return 0;
+           }
+           else
+           { 
+               return -1;
+           }
+
        
-        })
-    }
+        }).catch(function(error){
+                console.log(error);
+ 
+             });
+      }
+    
+    
 
     log(title,data)
     {
