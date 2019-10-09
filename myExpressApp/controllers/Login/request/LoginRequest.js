@@ -20,7 +20,6 @@ class LoginRequest{
         iResp = this.validate_body(data);
         iResp = this.validate_db(data);
 
-      
        // more checking or db Interaction here
        return iResp;
 
@@ -54,21 +53,20 @@ class LoginRequest{
 
      validate_db()
     {
-      let query;
-      query = User.findAll({
-       
-          where: { username: this.request_body.req_username,
-                                  password : this.request_body.req_password} 
-         
-          
-      })
-     
-      query.then(console.log);
- 
-      return query;
-   
-    }
+        return User
+        .findAll({
+          where:{
+            username:this.request_body.req_username
+          }
+        }).then(function(User){
 
+        //do some parsing/editing
+        //this then is not required if you don't want to change anything
+        console.log(User);
+        return User;
+        });
+
+    }
 
 }
 module.exports = LoginRequest;
