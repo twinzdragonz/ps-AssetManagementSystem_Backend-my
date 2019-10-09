@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/api/login',function(req,res){
-   res.json(LoginController.proc_login(req));
+   res.json(LoginController.proc_login(req,res));
    res.end();
 
 });

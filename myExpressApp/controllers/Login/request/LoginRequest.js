@@ -1,13 +1,12 @@
 
 var CommonFunctions = require('../../../middleware/CommonFunctions.js');
 
-const {User} = require("../../Database/Database");
-
 CommonFunctions = new CommonFunctions();
 class LoginRequest{
 
     init(data)
     {
+       var strResp = null;
        var iResp = 0;
        console.log("Login Data parses into process")
 
@@ -15,11 +14,12 @@ class LoginRequest{
          this.content_type = data.headers['content-type'];
          this.token =  data.headers['token'];
          iResp = this.validate_header(this.content_type,this.token);
+                 console.log("LoginRequest -> Validate header",iResp);
        //validate this is correct body
-
         iResp = this.validate_body(data);
-        iResp = this.validate_db(data);
+        console.log("LoginRequest -> Validate Body",iResp);
 
+ 
        // more checking or db Interaction here
        return iResp;
 
@@ -51,22 +51,6 @@ class LoginRequest{
         return 0;
     }
 
-     validate_db()
-    {
-        return User
-        .findAll({
-          where:{
-            username:this.request_body.req_username
-          }
-        }).then(function(User){
-
-        //do some parsing/editing
-        //this then is not required if you don't want to change anything
-        console.log(User);
-        return User;
-        });
-
-    }
 
 }
 module.exports = LoginRequest;
