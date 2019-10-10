@@ -24,28 +24,28 @@ router.get('/', function(req, res, next) {
 
 
 
+router.post('/api/login', async function(req,res){
+    res.json(await LoginController.proc_login(req,res));
+    res.end();
 
-router.post('/api/login',function(req,res){
-   res.json(LoginController.proc_login(req,res));
-   res.end();
 
 });
 
-// system api 
-router.post('/api/public',function(req,res){
+// system api
+router.post('/api/public', function(req,res){
   res.json(LoginController.proc_login(req));
   res.end();
 });
 
 
-// system api 
+// system api
 router.post('/api/ams_system',function(req,res){
   res.json(SystemController.proc_system(req));
   res.end();
 });
 
 
-// render api 
+// render api
 router.post('/api/render',function(req,res)
 {
   res.json(SystemController.proc_system(req));

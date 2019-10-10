@@ -13,8 +13,7 @@ const PageGroupIndexModel = require('./models/pageGroupIndex');
 const path = 'postgres://twinzdragonz:twinz0000@54.251.165.232:81/ams_db';
 
 const sequelize = new Sequelize(path, {
-    operatorsAliases: false,
-    logging: false
+    logging: true
 });
 
 const User = UserModel(sequelize,Sequelize);

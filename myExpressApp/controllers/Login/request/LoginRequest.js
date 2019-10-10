@@ -51,7 +51,6 @@ class LoginRequest{
         return 0;
     }
 
-
 }
 module.exports = LoginRequest;
 

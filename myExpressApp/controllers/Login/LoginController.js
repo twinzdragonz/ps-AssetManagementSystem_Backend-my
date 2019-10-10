@@ -4,16 +4,20 @@
 
  login_request = new login_request();
  login_response = new login_response();
-class LoginController
+
+ class LoginController
 {
-    proc_login(request,respond)
+   async proc_login(request,respond)
     {
-        var iResp = -1;
-        iResp =  login_request.init(request);
-        var resp_data = login_response.init(iResp,request);
-        respond.send(resp_data);
-        respond.end();
+
+            var iResp = -1;
+            iResp =  login_request.init(request);
+            var resp_data =  await login_response.init(iResp,request);
+            console.log("RESP_DATA :",resp_data);
+            return resp_data;
+
+
        // return resp_data;
     }
 }
-module.exports = LoginController;
+module.exports =LoginController;
