@@ -7,6 +7,7 @@
 
  class LoginController
 {
+
    async proc_login(request,respond)
     {
 
@@ -18,6 +19,9 @@
 
 
        // return resp_data;
+
     }
+
+
 }
 module.exports =LoginController;
