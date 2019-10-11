@@ -23,13 +23,17 @@ router.get('/', function(req, res, next) {
 });
 
 
-
 router.post('/api/login', async function(req,res){
     res.json(await LoginController.proc_login(req,res));
     res.end();
 
 
 });
+
+router.post('/api/logout', async function(req,res){
+    res.json(await LogoutController.proc_logout(req,res));
+});
+
 
 // system api
 router.post('/api/public', function(req,res){

@@ -1,6 +1,11 @@
 const {User} = require("../../Database/Database");
 
 
+var CommonFunctions = require('../../../middleware/CommonFunctions.js');
+
+CommonFunctions = new CommonFunctions();
+
+
  class LoginResponse{
 
   async init(iResp,request)
@@ -12,10 +17,29 @@ const {User} = require("../../Database/Database");
                                 }});
           console.log(data);
 
-            // Extract the JSON we need 
-            if(data[0].hasOwnProperty('dataValues')){
+          var returnedJson = null;
+            // Extract the JSON we need
+            //result[1] && result[1].username
+            if(data[0] && data[0].username){
                console.log("HI: " + data[0].dataValues);
-               returnedJson = data[0].dataValues; // This must be an INSERT...so dig deeper into the JSON object
+
+               // add additional info
+               data[0].dataValues['resp_code'] =  "00";
+               data[0].dataValues['resp_code_description'] =  "Success";
+
+               var key_now = ["id","username","password","salt","token",
+                              "updatedAt","createdAt"];
+
+               var key_to_replace = ["resp_id","resp_username","resp_password",
+                                   "resp_salt","resp_token","resp_updatedAt","resp_createdAt"];
+
+
+              CommonFunctions.jsonKeyReplaceArray(data[0].dataValues,key_now,key_to_replace);
+
+
+               returnedJson = data[0].dataValues;
+
+
             } else {
                console.log(data[0]);
                returnedJson =  {
@@ -25,8 +49,6 @@ const {User} = require("../../Database/Database");
             }
            return returnedJson;
     }
-
-
 
 }
 

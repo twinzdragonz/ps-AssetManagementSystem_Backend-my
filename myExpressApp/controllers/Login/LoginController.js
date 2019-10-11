@@ -10,7 +10,6 @@
 
    async proc_login(request,respond)
     {
-
             var iResp = -1;
             iResp =  login_request.init(request);
             var resp_data =  await login_response.init(iResp,request);

@@ -49,9 +49,39 @@ class CommonFunctions
          }
          return iResp;
       }
-         
+
+
+    jsonKeyReplaceArray(json_data,key,newKey)
+    {
+       if(key.length === newKey.length)
+       {
+            for(var x = 0; x <key.length; x++ )
+            {
+               this.jsonKeyReplace(json_data,key[x],newKey[x]);
+            }
+       }
+       else
+       {
+          console.log("COMMONFUNCTION JSON_KEY_REPLACE_ARRAY ERR MISSMATCH iLength");
+       }
+       return json_data;
+    }
+
+      jsonKeyReplace(json_data,key,newKey)
+      {
+         // get new key  value 
+          var data_value = json_data[key];
+          console.log("JSONKEY REPLACE >>>",data_value);
+         // remove old key 
+         delete json_data[key];
+         // add new key with previous value 
+         json_data[newKey] = data_value;
+         return json_data;
+
+      }
+
        jsontoArray(data)
-       { 
+       {
           var  temp_array = [];
           for (var key in data) {
               if (data.hasOwnProperty(key))
