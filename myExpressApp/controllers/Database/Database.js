@@ -9,6 +9,11 @@ const PageModel = require('./models/page');
 const PageGroupIndexModel = require('./models/pageGroupIndex');
 
 
+// page contact us 
+
+const FormContactUsModel = require('./models/ContactUs');
+
+
 // It contains the dbtype :username, password, the host name, database port and database name.
 const path = 'postgres://twinzdragonz:twinz0000@54.251.165.232:81/ams_db';
 
@@ -22,6 +27,8 @@ const UserGroupIndex = UserGroupIndexModel(sequelize,Sequelize);
 const Page = PageModel(sequelize,Sequelize);
 const PageGroupIndex = PageGroupIndexModel(sequelize,Sequelize);
 
+const FormContactUs = FormContactUsModel(sequelize,Sequelize);
+
 
 sequelize.sync({ force: false })
   .then(() => {
@@ -33,7 +40,10 @@ sequelize.sync({ force: false })
     UserGroup,
     UserGroupIndex,
     Page,
-    PageGroupIndex
+    PageGroupIndex,
+    FormContactUs
+
+
   }
 
 
