@@ -71,7 +71,7 @@ class CommonFunctions
       {
          // get new key  value 
           var data_value = json_data[key];
-          console.log("JSONKEY REPLACE >>>",data_value);
+          console.log("JSONKEY REPLACE : "+key+ " TO : "+ newKey + " ON VALUE : "+ data_value);
          // remove old key 
          delete json_data[key];
          // add new key with previous value 

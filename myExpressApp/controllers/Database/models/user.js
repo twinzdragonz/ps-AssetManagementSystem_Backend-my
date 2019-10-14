@@ -8,6 +8,7 @@ module.exports = (sequelize, type) => {
         username     : type.STRING,
         password : type.STRING,
         salt     : type.STRING,
-        token    : type.STRING
+        token    : type.STRING,
+        group_index : type.INTEGER
     })
 }

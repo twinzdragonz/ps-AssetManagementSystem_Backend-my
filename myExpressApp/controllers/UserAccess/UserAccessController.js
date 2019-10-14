@@ -17,16 +17,24 @@ CommonFunctions = new CommonFunctions();
                                       token:request.headers.token
                                      }});
                console.log(data);
-     
                var returnedJson = null;
                  // Extract the JSON we need
                  //result[1] && result[1].username
                  if(data[0] && data[0].id){
-                    console.log("UNIQUE ID : " + data[0].id);
+                    console.log("UNIQUE ID :" + data[0].id);
                       var usergroup_index_result = await  UserGroupIndex.findAll({
-                              where:{ user_id:data[0].id } 
+                              where:{ user_id:data[0].id }
                       });
                       console.log("THIS USER ID :"+data[0].id +"LIST OF GROUP OF:"+usergroup_index_result[0]);
+
+
+                      returnedJson =  {
+                        resp_code : "00",
+                        resp_code_description :"Success"
+                 }
+
+                      // how to get this result?
+                      // i want it return
 
                  } else {
 
@@ -36,8 +44,7 @@ CommonFunctions = new CommonFunctions();
 
 
                  }
-            
-            
+
 
             return returnedJson;
 

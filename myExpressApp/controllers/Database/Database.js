@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 
 // user
 const UserModel = require('./models/user');
+const UserExtModel = require('./models/userext');
 const UserGroupModel = require('./models/userGroup');
 const UserGroupIndexModel = require('./models/userGroupIndex');
 // page access 
@@ -22,11 +23,11 @@ const sequelize = new Sequelize(path, {
 });
 
 const User = UserModel(sequelize,Sequelize);
+const UserExt = UserExtModel(sequelize,Sequelize);
 const UserGroup = UserGroupModel(sequelize,Sequelize);
 const UserGroupIndex = UserGroupIndexModel(sequelize,Sequelize);
 const Page = PageModel(sequelize,Sequelize);
 const PageGroupIndex = PageGroupIndexModel(sequelize,Sequelize);
-
 const FormContactUs = FormContactUsModel(sequelize,Sequelize);
 
 
@@ -37,14 +38,14 @@ sequelize.sync({ force: false })
 
   module.exports = {
     User,
+    UserExt,
     UserGroup,
     UserGroupIndex,
     Page,
     PageGroupIndex,
     FormContactUs
 
-
-  }
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
 
 
