@@ -109,15 +109,15 @@ class CommonFunctions
         console.log(title,JSON.stringify(data));
         }
         else
-      {
-         console.log(title,data);
-      }
+         {
+            console.log(title,data);
+         }
      }
 
      generateID()
      {
-      var crypto = require('crypto');
 
+      var crypto = require('crypto');
       var current_date = (new Date()).valueOf().toString();
       var random = Math.random().toString();
 
