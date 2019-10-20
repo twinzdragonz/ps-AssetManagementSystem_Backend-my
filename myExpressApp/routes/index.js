@@ -46,6 +46,28 @@ router.post('/api/logout', async function(req,res){
     res.end();
 });
 
+// change password 
+
+
+/* USER LIST  */
+// get user all list 
+// get single user 
+// edit user 
+// delete user 
+
+
+
+// get inquiry list
+
+/* COMPANY LIST  */
+// get company list
+// get single company list 
+// edit company 
+// delete company 
+
+
+
+
 
 // User_Access
 router.post('/api/user_access',async function(req,res)
