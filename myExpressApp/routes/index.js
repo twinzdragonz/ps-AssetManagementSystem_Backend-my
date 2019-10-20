@@ -51,6 +51,8 @@ router.post('/api/logout', async function(req,res){
 
 /* USER LIST  */
 // get user all list 
+
+
 // get single user 
 // edit user 
 // delete user 
