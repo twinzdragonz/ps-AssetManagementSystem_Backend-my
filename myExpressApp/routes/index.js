@@ -8,6 +8,8 @@ var SystemController = require('../controllers/System/SystemController.js');
 
 var UserAccessController = require('../controllers/UserAccess/UserAccessController.js');
 
+var UsersController = require('../controllers/Users/UsersController.js');
+
 // Form submit 
 var FormController = require('../controllers/Form/FormController.js');
 
@@ -18,6 +20,7 @@ SystemController = new SystemController();
 // Form instance 
 FormController = new FormController();
 UserAccessController = new UserAccessController();
+UsersController = new UsersController();
 
 router.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -52,9 +55,28 @@ router.post('/api/logout', async function(req,res){
 /* USER LIST  */
 // get user all list 
 
+router.post('/api/userlist',async function(req,res){
+   res.json(await UsersController.getListofUsers(req,res));
+   res.end();
+
+});
+
 
 // get single user 
+
+router.post('/api/user',async function(req,res){
+  res.json(await UsersController.getUser(req,res));
+  res.end();
+
+});
+
+
 // edit user 
+
+
+
+
+
 // delete user 
 
 

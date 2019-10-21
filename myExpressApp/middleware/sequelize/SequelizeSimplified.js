@@ -41,7 +41,5 @@ class SequelizeSimplified
    }
 
 
-
-
 }
 module.exports = SequelizeSimplified;

@@ -1,7 +1,7 @@
 var CommonFunctions = require('../../middleware/CommonFunctions.js');
 
 
-const {User,UserGroup,UserGroupIndex} = require("../Database/Database");
+const {User,UserGroup,UserGroupIndex,UserExt} = require("../Database/Database");
 
 CommonFunctions = new CommonFunctions();
  class UserAccessController
@@ -22,8 +22,8 @@ CommonFunctions = new CommonFunctions();
                  //result[1] && result[1].username
                  if(data[0] && data[0].id){
                     console.log("UNIQUE ID :" + data[0].id);
-                      var usergroup_index_result = await  UserGroupIndex.findAll({
-                              where:{ user_id:data[0].id }
+                      var usergroup_index_result = await  UserExt.findAll({
+                              where:{ id:data[0].id }
                       });
                       console.log("THIS USER ID :"+data[0].id +"LIST OF GROUP OF:"+usergroup_index_result[0]);
 
@@ -31,7 +31,7 @@ CommonFunctions = new CommonFunctions();
                       returnedJson =  {
                         resp_code : "00",
                         resp_code_description :"Success"
-                 }
+                     }
 
                       // how to get this result?
                       // i want it return
@@ -44,6 +44,7 @@ CommonFunctions = new CommonFunctions();
 
 
                  }
+               }
 
 
             return returnedJson;
@@ -55,5 +56,5 @@ CommonFunctions = new CommonFunctions();
  }
 
 
-} 
+
 module.exports = UserAccessController;
