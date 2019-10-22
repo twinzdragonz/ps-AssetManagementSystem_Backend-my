@@ -70,14 +70,21 @@ router.post('/api/user',async function(req,res){
 
 });
 
-
 // edit user 
 
-
-
+router.post('/api/useredit',async function(req,res){
+  res.json(await UsersController.editUser(req,res));
+  res.end();
+});
 
 
 // delete user 
+
+router.delete('/api/user', async function(req,res)
+{
+  res.json(await UsersController.deleteUser(req,res));
+  res.end();
+});
 
 
 
@@ -88,8 +95,6 @@ router.post('/api/user',async function(req,res){
 // get single company list 
 // edit company 
 // delete company 
-
-
 
 
 

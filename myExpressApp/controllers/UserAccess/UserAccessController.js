@@ -10,7 +10,6 @@ CommonFunctions = new CommonFunctions();
    async proc_access(request,respond)
     {
             var iResp = -1;
-
             console.log("LOGIN RESPONSE IRESP >>",iResp);
             var data =  await User.findAll({
                                where:{username:request.body.req_username,
@@ -27,14 +26,10 @@ CommonFunctions = new CommonFunctions();
                       });
                       console.log("THIS USER ID :"+data[0].id +"LIST OF GROUP OF:"+usergroup_index_result[0]);
 
-
                       returnedJson =  {
                         resp_code : "00",
                         resp_code_description :"Success"
                      }
-
-                      // how to get this result?
-                      // i want it return
 
                  } else {
 
@@ -42,16 +37,10 @@ CommonFunctions = new CommonFunctions();
                         resp_code : "01",
                         resp_code_description :"User not exist  or incorrect password"
 
-
                  }
                }
 
-
             return returnedJson;
-
-
-       // return resp_data;
-
     }
  }
 
