@@ -24,7 +24,7 @@ UsersController = new UsersController();
 
 router.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, token,Token,Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   next();
 }) 
@@ -95,7 +95,6 @@ router.delete('/api/user', async function(req,res)
 // get single company list 
 // edit company 
 // delete company 
-
 
 
 // User_Access
