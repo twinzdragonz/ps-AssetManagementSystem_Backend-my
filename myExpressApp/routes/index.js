@@ -89,7 +89,6 @@ router.delete('/api/user', async function(req,res)
 
 
 // get inquiry list
-
 /* COMPANY LIST  */
 // get company list
 // get single company list 
